@@ -11,10 +11,14 @@ void main() => FlutterWorkbench.runAppWidgetTester(
         aspectRatio: 5 / 3,
         columns: 2,
       ),
-      children: [
-        MyWidget(),
-      ],
+      children: Iterable.generate(5)
+          .map((e) => MyWidget(
+                title: randomTitle(),
+                description: randomDescription(),
+              ))
+          .toList(),
     );
 
-final randomTitle = () => faker.lorem.words(1).join(' ');
-final randomDetails = () => faker.lorem.words(15).join(' ');
+final randomInt = (min, max) => faker.randomGenerator.integer(max, min: min);
+final randomTitle = () => faker.lorem.words(randomInt(2, 5)).join(' ');
+final randomDescription = () => faker.lorem.words(randomInt(15, 25)).join(' ');

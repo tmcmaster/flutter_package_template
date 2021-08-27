@@ -33,8 +33,10 @@ doc/api/
 /build/
 
 android
-web
+macos
 ios
+
+generated_plugin_registrant.dart
 
 **/*.log
 hold
